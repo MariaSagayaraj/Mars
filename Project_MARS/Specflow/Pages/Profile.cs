@@ -186,7 +186,7 @@ namespace Project_MARS.Specflow.Pages
                 //logic to select the language we need to update
                 if (SkillList == deleteskill)
                 {
-                    driver.FindElement(By.XPath("/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody[" + i + "]/tr[1]/td[3]/span[2]/i[1]")).Click();
+                    driver.FindElement(By.XPath("//div[@class='ui bottom attached tab segment tooltip-target active']/tbody[" + i + "]/tr[1]/td[3]/span[2]/i[1]")).Click();
                     return;
                 }
             }
