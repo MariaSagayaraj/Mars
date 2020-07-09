@@ -14,7 +14,7 @@ namespace Project_MARS.Hookup
         [Given(@"I click on the edit button of Description")]
         public void GivenIClickOnTheEditButtonOfDescription()
         {
-            
+            Thread.Sleep(2000);
             Profile.DescriptionIcon.Click();
         }
 
@@ -26,26 +26,17 @@ namespace Project_MARS.Hookup
             Profile.DescriptionText.SendKeys(description);
         }
 
-        [Given(@"I click on Save button")]
+        [When(@"I click on Save button")]
         public void GivenIClickOnSaveButton()
         {
             Profile.SaveDescriptionButton.Click();
         }
 
-        [Then(@"I validate that the description has been added successfully")]
-        public void ThenIValidateThatTheDescriptionHasBeenAddedSuccessfully()
+        [Then(@"I validate that the description has been added successfully (.*)")]
+        public void ThenIValidateThatTheDescriptionHasBeenAddedSuccessfully(string description)
         {
-            //verify the success confirmation flash message
-            WaitHelpers.waitClickableElement(driver, "XPath", "//div[@class='ns-box-inner']");
-            var message = driver.FindElement(By.XPath("//div[@class='ns-box-inner']")).Text;
-            try
-            {
-                Assert.IsTrue(message.Contains("Description has been saved successfully"));
-            }
-            catch (Exception)
-            {
-                Assert.Fail();
-            }
+            Profile.FlashMessage(description);
         }
+
     }
 }

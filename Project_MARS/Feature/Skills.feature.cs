@@ -84,14 +84,14 @@ namespace Project_MARS.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("1_Add a skill using valid input")]
-        [NUnit.Framework.CategoryAttribute("Add_Skill")]
-        [NUnit.Framework.TestCaseAttribute("Photoshop", "Expert", null)]
-        [NUnit.Framework.TestCaseAttribute("Singing", "Intermediate", null)]
-        public virtual void _1_AddASkillUsingValidInput(string skill, string skilllevel, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute(":1_Adding skills using valid inputs")]
+        [NUnit.Framework.CategoryAttribute("automation")]
+        [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
+        [NUnit.Framework.TestCaseAttribute("C#", "Intermediate", null)]
+        public virtual void _1_AddingSkillsUsingValidInputs(string skill, string skilllevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Add_Skill"};
+                    "automation"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -100,7 +100,7 @@ namespace Project_MARS.Feature
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("skill", skill);
             argumentsOfScenario.Add("skilllevel", skilllevel);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1_Add a skill using valid input", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(":1_Adding skills using valid inputs", null, tagsOfScenario, argumentsOfScenario);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -131,7 +131,7 @@ this.FeatureBackground();
  testRunner.And(string.Format("I enter the skill details {0},{1}", skill, skilllevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.Then("I click on Add button of skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click on Add button of skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
  testRunner.Then(string.Format("I validate that the new skill has been added successfully {0}", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -142,11 +142,12 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("2_Edit an existing skill using valid input")]
-        [NUnit.Framework.TestCaseAttribute("Drawing", null)]
-        public virtual void _2_EditAnExistingSkillUsingValidInput(string editSkill, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("C#", "Drawing", null)]
+        public virtual void _2_EditAnExistingSkillUsingValidInput(string skill, string editSkill, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("skill", skill);
             argumentsOfScenario.Add("EditSkill", editSkill);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2_Edit an existing skill using valid input", null, tagsOfScenario, argumentsOfScenario);
 #line 20
@@ -173,15 +174,12 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 21
- testRunner.Given("I click on Edit button of skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("I edit the skill details {0},{1}", skill, editSkill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 22
- testRunner.And(string.Format("I edit the skill details {0}", editSkill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click on the Update button of skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
- testRunner.Then("I click on the Update button of skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 24
  testRunner.Then(string.Format("I validate that the skill has been edited successfully {0}", editSkill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -190,12 +188,14 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("3_Delete an existing skill")]
-        public virtual void _3_DeleteAnExistingSkill()
+        [NUnit.Framework.TestCaseAttribute("Java", null)]
+        public virtual void _3_DeleteAnExistingSkill(string deleteskill, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("deleteskill", deleteskill);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3_Delete an existing skill", null, tagsOfScenario, argumentsOfScenario);
-#line 30
+#line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -218,11 +218,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 31
- testRunner.Given("I click on Delete button of skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 30
+ testRunner.Given(string.Format("I click on Delete button of skills tab {0}", deleteskill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 32
- testRunner.Then("I validate that the skill has been deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+ testRunner.Then(string.Format("I validate that the skill has been deleted successfully {0}", deleteskill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

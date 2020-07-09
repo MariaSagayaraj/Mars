@@ -6,22 +6,30 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Project_MARS.Specflow.Pages
+{ 
+ class SignIn : Drivers
 {
-    class SignIn
+    public static void Login(String username, String password)
     {
-        public static void Login(String username, String password)
-        {
-           //Clicking SignIn button
-            Drivers.driver.FindElement(By.XPath("//*[@id='home']/div/div/div[1]/div/a")).Click();
+        //Clicking SignIn button
+        driver.FindElement(By.XPath("//a[@class='item']")).Click();
 
-            //Enter Username
-            Drivers.driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[1]/input")).SendKeys(username);
+        //Enter Username
+        driver.FindElement(By.XPath("//input[@placeholder='Email address']")).SendKeys(username);
 
-            //Enter Password
-            Drivers.driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[2]/input")).SendKeys(password);
+        //Enter Password
+        driver.FindElement(By.XPath("//input[@placeholder='Password']")).SendKeys(password);
 
-            //Clicking Login Button
-            Drivers.driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button")).Click();
-        }
+        //Clicking Login Button
+        driver.FindElement(By.XPath("//button[@class='fluid ui teal button']")).Click();
+
     }
+
+    public static void LoginPageValidation()
+    {
+        WaitHelpers.waitClickableElement(driver, "XPath", "//div[@class='ui eight item menu']//a[@class='item'][contains(text(),'Profile')]");
+        Assert.That(driver.FindElement(By.XPath("//div[@class='ui eight item menu']//a[@class='item'][contains(text(),'Profile')]")).Text, Is.EqualTo("Profile"));
+        Assert.Pass();
+    }
+}
 }
