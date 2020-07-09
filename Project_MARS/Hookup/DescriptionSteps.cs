@@ -14,7 +14,6 @@ namespace Project_MARS.Hookup
         [Given(@"I click on the edit button of Description")]
         public void GivenIClickOnTheEditButtonOfDescription()
         {
-            Thread.Sleep(2000);
             Profile.DescriptionIcon.Click();
         }
 
@@ -32,10 +31,10 @@ namespace Project_MARS.Hookup
             Profile.SaveDescriptionButton.Click();
         }
 
-        [Then(@"I validate that the description has been added successfully (.*)")]
-        public void ThenIValidateThatTheDescriptionHasBeenAddedSuccessfully(string description)
+        [Then(@"I validate that the description has been added successfully")]
+        public void ThenIValidateThatTheDescriptionHasBeenAddedSuccessfully()
         {
-            Profile.FlashMessage(description);
+            Profile.FlashMessageDescription();
         }
 
     }

@@ -56,6 +56,30 @@ namespace Project_MARS.Specflow.Pages
         public static IWebElement SaveDescriptionButton => driver.FindElement(By.XPath("//div[@class='ui twelve wide column']//button[@class='ui teal button'][text()='Save']"));
 
 
+        public static void FlashMessageDescription()
+        {
+            WaitHelpers.waitClickableElement(driver, "XPath", "//div[@class='ns-box-inner']");
+
+            var actual = driver.FindElement(By.XPath("//div[@class='ns-box-inner']")).Text;
+
+           
+            var addDescription = ("Description has been saved successfully");
+
+
+            
+            if (actual == addDescription)
+            {
+                Assert.Pass();
+                Console.WriteLine("Description has been saved successfully");
+                return;
+            }
+
+            else
+            {
+                Assert.Fail();
+            }
+
+        }
 
         public static void FlashMessage(String data)
         {
@@ -70,7 +94,7 @@ namespace Project_MARS.Specflow.Pages
             var skillAdd = (data + " " + "has been added to your skills");
             var skillUpdate = (data + " " + "has been updated to your skills");
             var skilldelete = (data + " " + "has been deleted");
-            var addDescription = (data + " " + "has been saved successfully");
+            var addDescription = ("Description has been saved successfully");
 
 
             if (actual == languageAdd)

@@ -1,4 +1,4 @@
-﻿Feature:5_ManualTestCases
+﻿Feature:ManualTestCases
 	As a seller
 	I would like to add my profile details and view it on the profile page
 
