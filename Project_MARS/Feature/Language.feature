@@ -16,7 +16,6 @@ Scenario Outline: 1_Adding Languages using valid inputs
 		| language | languagelevel  |
 		| English  | Fluent         |
 		| Tamil    | Basic          |
-		| French   | Conversational |
 
 Scenario:2_Edit an existing language using valid input
 	Given I edit the language details <language>, <Editlanguage>
@@ -33,4 +32,4 @@ Scenario:3_Delete an existing language
 
 	Examples:
 		| deletelanguage |
-		| French   |
+		| English   |

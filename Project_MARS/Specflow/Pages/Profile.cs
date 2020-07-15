@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using BoDi;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Project_MARS.Specflow.Helpers;
@@ -9,8 +10,9 @@ using System.Threading;
 
 namespace Project_MARS.Specflow.Pages
 {
-    class Profile : Drivers
+    public class Profile : Drivers
     {
+
         public static IWebElement ProfileTab => driver.FindElement(By.XPath("//div[@class='ui eight item menu']//a[@class='item'][contains(text(),'Profile')]"));
 
         //Languages tab
@@ -61,12 +63,10 @@ namespace Project_MARS.Specflow.Pages
             WaitHelpers.waitClickableElement(driver, "XPath", "//div[@class='ns-box-inner']");
 
             var actual = driver.FindElement(By.XPath("//div[@class='ns-box-inner']")).Text;
-
-           
+         
             var addDescription = ("Description has been saved successfully");
 
 
-            
             if (actual == addDescription)
             {
                 Assert.Pass();
@@ -187,11 +187,11 @@ namespace Project_MARS.Specflow.Pages
             for (int i = 1; i > 0; i++)
             {
                 var skillList = driver.FindElement(By.XPath("/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody[" + i + "]/tr[1]/td[1]")).Text;
-
                 //logic to select the language we need to update
                 if (skillList == skill)
                 {
-                    driver.FindElement(By.XPath("//div[@class='ui bottom attached tab segment tooltip-target active']/tbody[" + i + "]/tr[1]/td[3]/span[2]/i[1]")).Click();
+                    driver.FindElement(By.XPath("//tbody[" + i + "]/tr[1]/td[3]/span[1]/i[1]")).Click();
+                    //*[@id="account-profile-section"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i
                     EditSkillText.Clear();
                     EditSkillText.SendKeys(editSkill);
                     return;
@@ -208,12 +208,13 @@ namespace Project_MARS.Specflow.Pages
                 var SkillList = driver.FindElement(By.XPath("/html[1]/body[1]/div[1]/div[1]/section[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[3]/div[1]/div[2]/div[1]/table[1]/tbody[" + i + "]/tr[1]/td[1]")).Text;
 
                 //logic to select the language we need to update
+
                 if (SkillList == deleteskill)
                 {
-                    driver.FindElement(By.XPath("//div[@class='ui bottom attached tab segment tooltip-target active']/tbody[" + i + "]/tr[1]/td[3]/span[2]/i[1]")).Click();
+                    driver.FindElement(By.XPath("//div[@class='ui bottom attached tab segment tooltip-target active']//tbody[" + i + "]/tr[1]/td[3]/span[2]/i[1]")).Click();
                     return;
                 }
-            }
+            }//div[@class='ui bottom attached tab segment tooltip-target active']//tbody[1]//tr[1]//td[3]//span[2]//i[1]
         }
     }
 }

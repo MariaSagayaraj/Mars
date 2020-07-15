@@ -9,7 +9,7 @@ namespace Project_MARS.Specflow.Pages
 { 
  class SignIn : Drivers
 {
-    public static void Login(String username, String password)
+    public void Login(String username, String password)
     {
         //Clicking SignIn button
         driver.FindElement(By.XPath("//a[@class='item']")).Click();

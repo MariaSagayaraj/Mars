@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using BoDi;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Project_MARS.Specflow.Helpers
         }
 
 
-        public static void NavigateUrl()
+        public  void NavigateUrl()
         {
             driver.Navigate().GoToUrl(BaseUrl);
         }
@@ -36,6 +37,12 @@ namespace Project_MARS.Specflow.Helpers
         public void Close()
         {
             driver.Quit();
+        }
+
+        public static void TurnOnWait()
+        {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
         }
     }
 }

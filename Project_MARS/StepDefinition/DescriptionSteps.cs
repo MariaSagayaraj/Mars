@@ -14,6 +14,7 @@ namespace Project_MARS.Hookup
         [Given(@"I click on the edit button of Description")]
         public void GivenIClickOnTheEditButtonOfDescription()
         {
+            TurnOnWait();
             Profile.DescriptionIcon.Click();
         }
 

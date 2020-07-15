@@ -88,7 +88,6 @@ namespace Project_MARS.Feature
         [NUnit.Framework.CategoryAttribute("automation")]
         [NUnit.Framework.TestCaseAttribute("English", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Tamil", "Basic", null)]
-        [NUnit.Framework.TestCaseAttribute("French", "Conversational", null)]
         public virtual void _1_AddingLanguagesUsingValidInputs(string language, string languagelevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -151,7 +150,7 @@ this.FeatureBackground();
             argumentsOfScenario.Add("language", language);
             argumentsOfScenario.Add("Editlanguage", editlanguage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2_Edit an existing language using valid input", null, tagsOfScenario, argumentsOfScenario);
-#line 21
+#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -174,13 +173,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 22
+#line 21
  testRunner.Given(string.Format("I edit the language details {0}, {1}", language, editlanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 23
+#line 22
  testRunner.When("I click on the Update button of Language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 23
  testRunner.Then(string.Format("I validate that the language has been edited successfully {0}", editlanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -189,14 +188,14 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("3_Delete an existing language")]
-        [NUnit.Framework.TestCaseAttribute("French", null)]
+        [NUnit.Framework.TestCaseAttribute("English", null)]
         public virtual void _3_DeleteAnExistingLanguage(string deletelanguage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("deletelanguage", deletelanguage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3_Delete an existing language", null, tagsOfScenario, argumentsOfScenario);
-#line 30
+#line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -219,10 +218,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 31
+#line 30
  testRunner.When(string.Format("I click on Delete button of Language tab {0}", deletelanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 32
+#line 31
  testRunner.Then(string.Format("I validate that the language has been deleted successfully {0}", deletelanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
